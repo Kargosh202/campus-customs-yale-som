@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Customs: App Check</title>
+    <style>
+      body {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+        color: #222;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, Arial, sans-serif;
+        line-height: 1.5;
+      }
+      h1,
+      h2 {
+        color: #00356b;
+        font-family: 'Palatino', 'Book Antiqua', serif;
+        font-weight: 400;
+      }
+      section {
+        margin-top: 2.5rem;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Campus Customs: App Check</h1>
+
+    <section>
+      <h2>1. Chatbot checks the inventory level for a size</h2>
+      <p>
+        On the Baseball Left Chest Crewneck page, the shopper asks "do you have this in XS?" without naming the
+        product. Handsome Dan knows which item they mean from the page context, looks up live stock, and correctly
+        says XS is out of stock and lists the sizes that are available (S, M, L, XXL), matching the database and
+        the size boxes on the page.
+      </p>
+      <img src="app_check_images/inventory.png" alt="Chat on the Baseball Left Chest Crewneck page: Handsome Dan says XS is out of stock and lists S, M, L, and XXL as available" />
+    </section>
+
+    <section>
+      <h2>2. Dynamic page update from the chatbot</h2>
+      <p>
+        Asking "yall have hoodies?" makes the agent search the catalogue and return structured product matches,
+        which the website renders as a "From your chat: Yale hoodies" panel of product cards on the page itself.
+        The reply's totals come from the database: 27 hoodies, $45.00 to $88.00, with 15 more beyond the 12 shown.
+      </p>
+      <img src="app_check_images/dynamic_update.png" alt="A From your chat panel titled Yale hoodies with 12 product cards on the page, next to Handsome Dan's reply about 27 hoodies from $45.00 to $88.00" />
+    </section>
+
+    <section>
+      <h2>3. Sorting products by price</h2>
+      <p>
+        The Products page has a Sort by control with Name (A to Z), Price: Low to High, and Price: High to Low.
+        Choosing Low to High reorders all 102 products from the $32.00 T-shirts up to the $98.00 jackets.
+      </p>
+      <img src="app_check_images/sort_price.png" alt="The Sort by dropdown open, showing Name (A to Z), Price: Low to High, and Price: High to Low" />
+    </section>
+  </body>
+</html>

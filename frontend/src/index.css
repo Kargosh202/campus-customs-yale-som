@@ -1,0 +1,1312 @@
+/*
+ * Yale theme, matched to www.yale.edu and the Yale identity guidelines
+ * (https://yaleidentity.yale.edu/colors):
+ *   Yale Blue #00356b, Yale Intensity Blue #286dc0, Yale Gray #978d85, #222 text on white.
+ * Fonts use yale.edu's own font stacks. YaleNew / YaleDesign and Mallory are licensed Yale
+ * typefaces, so their files aren't copied here; they render only where they're installed, and
+ * everyone else gets the same fallbacks yale.edu uses (Palatino / Book Antiqua, Gill Sans / Calibri).
+ */
+:root {
+  --yale-blue: #00356b;
+  --yale-blue-dark: #00244a;
+  --yale-intensity-blue: #286dc0;
+  --yale-gray: #978d85;
+  --blue-tint: #eef3fa;
+  --blue-tint-border: #c8d7ec;
+  --white: #ffffff;
+  --surface: #ffffff;
+  --surface-alt: #f5f6f8;
+  --text: #222222;
+  --muted: #5f5f5f;
+  --border: #dddddd;
+  --border-strong: #bbbbbb;
+  --error: #a4161a;
+  --error-bg: #fdeced;
+  --error-border: #f2c4c6;
+
+  --font-serif: 'YaleNew', 'YaleDesign', 'Warnock Pro', 'Goudy Old Style', 'Palatino', 'Book Antiqua', serif;
+  --font-sans: 'Mallory', 'Gill Sans', 'Gill Sans MT', Calibri, Arial, sans-serif;
+
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--surface);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--yale-intensity-blue);
+}
+
+a:hover {
+  color: var(--yale-blue);
+}
+
+h1,
+h2 {
+  color: var(--yale-blue);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  padding: 1rem 2rem;
+  background: var(--yale-blue);
+  color: var(--white);
+}
+
+.brand {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--white);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.nav-link {
+  padding: 0.45rem 0.8rem;
+  border-radius: 4px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 -2px 0 var(--white);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--yale-blue);
+  color: var(--white);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--yale-intensity-blue);
+  color: var(--white);
+}
+
+.button.large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* On blue backgrounds (nav bar, hero) buttons flip to white. */
+.navbar .button,
+.hero .button {
+  background: var(--white);
+  color: var(--yale-blue);
+}
+
+.navbar .button:hover,
+.hero .button:hover {
+  background: var(--blue-tint);
+  color: var(--yale-blue);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--yale-intensity-blue);
+  outline-offset: 2px;
+}
+
+.navbar a:focus-visible,
+.navbar button:focus-visible,
+.hero a:focus-visible {
+  outline-color: var(--white);
+}
+
+/* Layout */
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.footer {
+  padding: 1.5rem 2rem;
+  background: var(--yale-blue);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0.2rem 0;
+}
+
+/* Home */
+.hero {
+  padding: 3.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  background: var(--yale-blue);
+  color: var(--white);
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0.5rem 0;
+  color: var(--white);
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
+}
+
+.lead {
+  margin: 0 0 1.75rem;
+  font-size: 1.15rem;
+}
+
+.badge {
+  display: inline-block;
+  margin: 0;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--yale-blue);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.visit h2 {
+  margin-top: 0;
+}
+
+.visit address {
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+/* Forms */
+.form-card {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.form-card h1 {
+  margin-top: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row label {
+  flex: 1;
+  min-width: 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-account {
+    margin-left: 0;
+  }
+
+  .page {
+    padding: 1.25rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+/* Products */
+.price {
+  margin: 0;
+  color: var(--yale-blue);
+  font-weight: 700;
+}
+
+.price.large {
+  font-size: 1.6rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--yale-intensity-blue);
+  box-shadow: 0 6px 18px rgba(0, 53, 107, 0.12);
+  color: var(--text);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.product-card-body h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.product-card-desc {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.875rem;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.out-of-stock-tag {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Products toolbar: item count and sort */
+.products-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.products-toolbar .muted {
+  margin: 0;
+}
+
+.sort-control {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.sort-control select {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Product detail */
+.back-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  text-decoration: none;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.product-detail-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.product-detail-info h1 {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.product-detail-info h2 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.garment-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.size-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.55rem 0.4rem;
+  border: 1px solid var(--yale-blue);
+  border-radius: 4px;
+}
+
+.size-label {
+  color: var(--yale-blue);
+  font-weight: 700;
+}
+
+.size-stock {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.size.sold-out {
+  border-color: var(--border);
+  background: var(--surface-alt);
+  opacity: 0.7;
+}
+
+.size.sold-out .size-label {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+@media (max-width: 760px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Chat widget */
+.chat-widget {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.chat-toggle {
+  padding: 0.8rem 1.3rem;
+  border: 2px solid var(--white);
+  border-radius: 999px;
+  background: var(--yale-blue);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.chat-toggle:hover {
+  background: var(--yale-intensity-blue);
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(400px, calc(100vw - 2rem));
+  height: min(600px, calc(100vh - 8rem));
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+
+.chat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  background: var(--yale-blue);
+  color: var(--white);
+}
+
+.chat-header h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: 1.15rem;
+}
+
+.chat-header p {
+  margin: 0.15rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+}
+
+.chat-close {
+  padding: 0 0.4rem;
+  border: none;
+  background: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chat-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem;
+  overflow-y: auto;
+  background: var(--surface-alt);
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-message.user {
+  align-items: flex-end;
+}
+
+.chat-message.assistant {
+  align-items: flex-start;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.chat-bubble p,
+.chat-bubble ul,
+.chat-bubble ol {
+  margin: 0 0 0.5rem;
+}
+
+.chat-bubble > :last-child {
+  margin-bottom: 0;
+}
+
+.chat-bubble ul,
+.chat-bubble ol {
+  padding-left: 1.2rem;
+}
+
+.chat-bubble.assistant {
+  align-self: flex-start;
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 3px;
+  background: var(--white);
+  color: var(--text);
+}
+
+.chat-bubble.assistant strong {
+  color: var(--yale-blue);
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  border-bottom-right-radius: 3px;
+  background: var(--yale-blue);
+  color: var(--white);
+  white-space: pre-wrap;
+}
+
+.chat-bubble.typing {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.chat-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chat-product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  height: 100%;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--text);
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.chat-product:hover {
+  border-color: var(--yale-intensity-blue);
+  color: var(--text);
+}
+
+.chat-product img {
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 0.3rem;
+  object-fit: contain;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-product-name,
+.chat-product-price {
+  padding: 0 0.5rem;
+}
+
+.chat-product-name {
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.chat-product-price {
+  color: var(--yale-blue);
+  font-weight: 700;
+}
+
+.chat-product-soldout {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.chat-more-note {
+  display: none;
+  margin: 0;
+  color: var(--yale-intensity-blue);
+  font-size: 0.8rem;
+}
+
+.chat-input {
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-input .button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .chat-widget {
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+
+/* Auth */
+.nav-greeting {
+  padding: 0 0.5rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.field-hint.error,
+.form-error {
+  color: var(--error);
+}
+
+.form-error {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--error-border);
+  border-radius: 4px;
+  background: var(--error-bg);
+}
+
+input[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+form .button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -0.4rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+label.checkbox input {
+  width: auto;
+  accent-color: var(--yale-blue);
+}
+
+/* About */
+.about-lead {
+  max-width: 60ch;
+  margin-bottom: 1.75rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.about-grid h2 {
+  margin-top: 0;
+}
+
+.about-address {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  font-style: normal;
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+  margin: 0;
+}
+
+.contact-list dt {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.contact-list dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-member {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--yale-blue);
+  border-radius: 4px;
+  background: var(--surface-alt);
+}
+
+.team-member h3 {
+  margin: 0 0 0.6rem;
+  color: var(--yale-blue);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.25rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product results from the chat, shown on the page */
+.results-panel {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 1px solid var(--blue-tint-border);
+  border-top: 4px solid var(--yale-blue);
+  border-radius: 6px;
+  background: var(--blue-tint);
+  scroll-margin-top: 1rem;
+}
+
+.results-panel.below {
+  margin: 2.5rem 0 0;
+}
+
+.results-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.results-header h2 {
+  margin: 0.1rem 0;
+}
+
+.results-header .muted {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.results-eyebrow {
+  margin: 0;
+  color: var(--yale-intensity-blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.results-close {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--yale-blue);
+  border-radius: 4px;
+  background: var(--white);
+  color: var(--yale-blue);
+  font: inherit;
+  cursor: pointer;
+}
+
+.results-close:hover {
+  background: var(--yale-blue);
+  color: var(--white);
+}
+
+.app {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+/* On wide screens, keep the page beside the open chat panel instead of under it. */
+@media (min-width: 1000px) {
+  .app.chat-open .page,
+  .app.chat-open .footer {
+    max-width: none;
+    margin: 0;
+    padding-right: calc(400px + 3rem);
+  }
+
+  .chat-products.compact li:nth-child(n + 5) {
+    display: none;
+  }
+
+  .chat-more-note {
+    display: block;
+  }
+}
+
+/* With the chat open beside a laptop-width page, stack the detail view so the image stays large. */
+@media (min-width: 1000px) and (max-width: 1399px) {
+  .app.chat-open .product-detail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .app.chat-open .product-detail-image {
+    max-width: 520px;
+  }
+}
+
+/* Live status while the assistant works ("Checking stock…") */
+.chat-bubble.typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.typing-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--yale-intensity-blue);
+  animation: typing-bounce 1.2s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-dots span {
+    animation: none;
+  }
+}
+
+/* Home banner with Handsome Dan I (1889) blended into the Yale Blue background */
+.hero-dan {
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 3rem 3.25rem;
+  text-align: left;
+}
+
+.hero-dan-photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  max-width: 55%;
+  object-fit: cover;
+  object-position: center top;
+  /* Black-and-white photo tinted Yale Blue, fading into the banner on its left edge. */
+  mix-blend-mode: luminosity;
+  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 34rem;
+}
+
+.hero-credit {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.6rem;
+  margin: 0;
+  max-width: 45%;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.7rem;
+  text-align: right;
+}
+
+@media (max-width: 760px) {
+  .hero-dan {
+    padding: 3rem 1.5rem 3.5rem;
+    text-align: center;
+  }
+
+  /* On phones Dan sits behind the text as a soft watermark. */
+  .hero-dan-photo {
+    left: 0;
+    width: 100%;
+    max-width: none;
+    opacity: 0.22;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero-content {
+    margin: 0 auto;
+  }
+
+  .hero-credit {
+    left: 1rem;
+    max-width: none;
+    text-align: center;
+  }
+}
+
+/* --- Home page intro: Handsome Dan explores the page (once per session) --- */
+
+/* The banner text fades up piece by piece, and Dan's photo eases in behind it. */
+.hero-dan .hero-content > * {
+  animation: hero-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-dan .hero-content > :nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-dan .hero-content > :nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.hero-dan .hero-content > :nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.hero-dan .hero-content > :nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+.hero-dan-photo {
+  animation: dan-photo-in 1.4s ease-out both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes dan-photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+/* Overlay for the flying Dan; never catches clicks. */
+.dan-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dan-flyer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: dan-explore 4.6s cubic-bezier(0.45, 0.05, 0.35, 1) forwards;
+}
+
+.dan-face {
+  width: 92px;
+  height: 92px;
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  background: var(--yale-blue) url('/images/handsome-dan-1889.jpg') 18% 2% / 230% auto no-repeat;
+  box-shadow: 0 8px 22px rgba(0, 33, 74, 0.35), 0 0 0 3px var(--yale-blue);
+  animation: dan-wiggle 0.6s ease-in-out infinite alternate;
+}
+
+.dan-bark {
+  position: absolute;
+  bottom: 100%;
+  left: 60%;
+  margin-bottom: 6px;
+  padding: 0.35rem 0.7rem;
+  border-radius: 12px 12px 12px 3px;
+  background: var(--white);
+  color: var(--yale-blue);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform-origin: bottom left;
+  animation: dan-bark 4.6s ease forwards;
+}
+
+.dan-paw {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0;
+  filter: grayscale(1) brightness(0.35) sepia(1) hue-rotate(180deg) saturate(4);
+  animation: dan-paw 2.4s ease-out forwards;
+}
+
+/* Dan's route: swoops in from the top left, loops through the page, pauses to bark, and
+   zooms off the top right. Positions use vw/vh so the route fits any screen size. */
+@keyframes dan-explore {
+  0% {
+    transform: translate(-15vw, 8vh) rotate(-30deg) scale(0.6);
+  }
+  14% {
+    transform: translate(12vw, 26vh) rotate(10deg) scale(1);
+  }
+  28% {
+    transform: translate(30vw, 48vh) rotate(-8deg) scale(1.05);
+  }
+  42% {
+    transform: translate(48vw, 64vh) rotate(14deg) scale(1);
+  }
+  54% {
+    transform: translate(66vw, 56vh) rotate(-6deg) scale(1.1);
+  }
+  /* Pause to bark */
+  62%,
+  76% {
+    transform: translate(72vw, 34vh) rotate(0deg) scale(1.2);
+  }
+  88% {
+    transform: translate(84vw, 18vh) rotate(18deg) scale(0.9);
+  }
+  100% {
+    transform: translate(112vw, -20vh) rotate(40deg) scale(0.5);
+  }
+}
+
+@keyframes dan-wiggle {
+  from {
+    rotate: -6deg;
+  }
+  to {
+    rotate: 6deg;
+  }
+}
+
+@keyframes dan-bark {
+  0%,
+  60% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  64%,
+  78% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  84%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes dan-paw {
+  0% {
+    opacity: 0;
+    scale: 0.4;
+  }
+  15% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .dan-face {
+    width: 64px;
+    height: 64px;
+  }
+
+  .dan-bark {
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dan .hero-content > *,
+  .hero-dan-photo {
+    animation: none;
+  }
+}
+
+/* --- The chat is Handsome Dan: his face as the chat avatar --- */
+.dan-avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--yale-blue) url('/images/handsome-dan-1889.jpg') 18% 2% / 230% auto no-repeat;
+  box-shadow: 0 0 0 1px var(--border);
+}
+
+.dan-avatar.large {
+  width: 44px;
+  height: 44px;
+  box-shadow: none;
+}
+
+.chat-header {
+  align-items: center;
+}
+
+.chat-header-text {
+  flex: 1;
+}
+
+.chat-dan-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.45rem;
+  max-width: 92%;
+}
+
+.chat-dan-row .chat-bubble {
+  max-width: none;
+}
+
+.chat-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding-left: 0.6rem;
+}
+
+.chat-toggle .dan-avatar {
+  width: 34px;
+  height: 34px;
+  box-shadow: none;
+}

@@ -1,0 +1,27 @@
+# Secrets: only .env.example (placeholders) is committed
+.env
+.env.*
+!.env.example
+
+# Local-only data pack: database and product images (see README)
+data/
+data.zip
+*.db
+*.sqlite
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+backend/logs/
+output/*.tmp
+
+# Node / Vite
+node_modules/
+frontend/dist/
+
+# Editor and OS
+.DS_Store
+.vscode/
+.idea/
+.claude/
