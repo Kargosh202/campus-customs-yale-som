@@ -300,3 +300,11 @@ finish output/harness.md so it is clear how the system works. the screenshot ref
 *(Attached screenshot of the assignment's repo rules: don't commit the real `.env`, `campus_customs.db`, or product images; use `.gitignore`; include `.env.example` with placeholders; expected layout with `AI_prompts.md`, `requirements.txt`, `.env.example`, `.gitignore`, `README.md`, `frontend/`, `backend/` (main, agent, models, tools, prompts/prompt.md), and `output/` (harness, design, usability, app_check.html + images, audit_trail.json); `data/` is a local-only data pack; README explains how to run after placing the data pack.)*
 
 **Assistant:** Prepared the repo to match the expected layout: moved `requirements.txt` to the top level, added `.env.example` (placeholders only), a `.gitignore` excluding `.env`, `data/`, `data.zip`, `*.db`, venvs, node_modules, logs, and editor files, and a `README.md` explaining how to place the data pack and run both servers; removed the Vite template README; made the backend load `.env` from the repo folder first (then the parent course folder). Scanned all 58 files to be committed: the real Portkey key and session secret appear nowhere, no key-like strings, only store/test emails. Created a separate git repo in `HW 4/` and committed locally. Found SSH access to GitHub works as Kargosh202 but the `gh` CLI isn't installed, so the public repository needs to be created on github.com (or `gh` installed) before pushing; asked for the repo name and confirmation to publish.
+
+**User:** https://github.com/Kargosh202/campus-customs-yale-som
+
+its called campus-customs-yale-som
+
+yes this can be public
+
+**Assistant:** Added the repo as the `origin` remote over SSH, confirmed it was empty, and pushed the `main` branch to https://github.com/Kargosh202/campus-customs-yale-som. Verified the remote matches the local commit and that no `.env`, database, or product images were pushed.
